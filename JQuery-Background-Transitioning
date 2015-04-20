@@ -1,0 +1,32 @@
+
+  $(document).ready(function(){
+  
+    //set the counter to 1
+    var x = 1;          
+    
+    //begin the interval function 
+    setInterval(function(){               
+    
+      //fade-out 2 second linear
+      $("#divBg").fadeOut(2000, function(){         
+      
+        //upon successful execution of fade-out, function to change background initiates by changing
+        //the class which points to the bg image (in this case the class names are bg1, bg2, etc).
+        //"bg" is concatenated to x's value to form the appropriate class name
+        document.getElementById("divBg").className = "bg" + x;          
+      });
+      
+      //After the fade-out with the background change, fade in occurs
+      $("#divBg").fadeIn(2000);
+      
+      //Increment x
+      x += 1;
+      
+      //Reset x to 1 (first image) once the max number of photos is reached, which, in this case, is 5.
+      if (x > 5) {
+        x = 1;
+      }
+      
+    //Set interval to 20 seconds
+    }, 20000);
+  });
